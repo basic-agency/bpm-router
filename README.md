@@ -24,10 +24,25 @@ Router.start({
 });
 ```
 
-To navigate use
+Navigate:
 
 ```javascript
 Router.navigate('/page')
+```
+
+Change the root of the project:
+
+```javascript
+Router.root = '/subdir/'; // default '/'
+```
+
+Add redirects:
+
+```javascript
+Router.redirect({
+	'/home': '/',
+	'/old-post': '/new-post'
+});
 ```
 
 ## Helpful Functions
