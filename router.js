@@ -53,8 +53,8 @@ class Router {
 		const params = this.parse(path);
 
 		for (const i in this.routes) {
-			const routeParams = this.map[this.routes[i]].params,
-				variables = [];
+			const routeParams = this.map[this.routes[i]].params;
+			const variables = [];
 			let accuracy = 0;
 			if (params.length) {
 				if (params.length <= routeParams.length) {
@@ -84,7 +84,7 @@ class Router {
 			}
 		}
 
-		if (match.route) {
+		if (match.route && this.map[match.route]) {
 			this.map[match.route].fn(...match.variables);
 		} else if (this.map[this.http404]) {
 			this.map[this.http404].fn();
