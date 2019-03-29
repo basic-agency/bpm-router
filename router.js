@@ -27,13 +27,16 @@ class Router {
 		};
 	}
 
-	navigate(path) {
+	navigate(path, silent = false) {
 		if (path !== window.location.pathname) {
 			let finalPath = path;
 			if (this.redirects[path]) finalPath = this.redirects[path];
 			window.history.pushState(false, false, this.root.replace(/\/$/, '') + finalPath);
 		}
-		this.check();
+		
+		if (!silent) {
+			this.check();
+		}
 	}
 
 	redirect(urls) {
