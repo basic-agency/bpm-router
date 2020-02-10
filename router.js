@@ -72,6 +72,7 @@ class Router {
 								accuracy += 1;
 								if (routeParams[p].charAt(1) === ':') variables.push(params[p]);
 							} else {
+								accuracy = 0;
 								break;
 							}
 						} else if (routeParams[p].charAt(0) !== '?') {
